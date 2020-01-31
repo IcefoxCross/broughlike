@@ -27,6 +27,8 @@
 	uiWidth = 4;
 	level = 1;
 
+	maxHp = 6;
+
 	spritesheet = new Image();
 	spritesheet.src = 'spritesheet.png';
 
@@ -35,6 +37,8 @@
 		if(e.key=="s") player.tryMove(0,1);
 		if(e.key=="a") player.tryMove(-1,0);
 		if(e.key=="d") player.tryMove(1,0);
+
+		if(e.key=="r") player.tryMove(0,0);
 	};
 
 	setInterval(draw, 15);

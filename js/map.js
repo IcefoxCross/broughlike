@@ -57,6 +57,7 @@ function generateMonsters() {
 
 function spawnMonster() {
 	let monsterType = shuffle([Bird, Snake, Tank, Eater, Jester])[0];
+	//let monsterType = Jester;
 	let monster = new monsterType(randomPassableTile());
 	monsters.push(monster);
 }
