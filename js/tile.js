@@ -6,6 +6,10 @@ class Tile {
 		this.passable = passable;
 	}
 
+	stepOn(monster) {
+		//TODO
+	}
+
 	replace(newTileType) {
 		tiles[this.x][this.y] = new newTileType(this.x, this.y);
 		return tiles[this.x][this.y];
@@ -48,6 +52,23 @@ class Tile {
 
 	draw() {
 		drawSprite(this.sprite, this.x, this.y);
+	}
+}
+
+class Exit extends Tile {
+	constructor(x,y) {
+		super(x, y, 11, true);
+	};
+
+	stepOn(monster) {
+		if (monster.isPlayer) {
+			if (level == numLevels) {
+				showTitle();
+			} else {
+				level++;
+				startLevel(Math.min(maxHp, player.hp+1));
+			}
+		}
 	}
 }
 
